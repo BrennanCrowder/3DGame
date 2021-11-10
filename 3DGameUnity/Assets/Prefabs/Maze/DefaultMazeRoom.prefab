@@ -141,8 +141,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c3024371995d7847a840e24ea712733, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  RoomsParent: {fileID: 0}
-  Rooms: []
+  thisRoom: {fileID: 0}
 --- !u!1 &3915514719002855979
 GameObject:
   m_ObjectHideFlags: 0
@@ -380,6 +379,18 @@ PrefabInstance:
     - target: {fileID: 8356031363328384329, guid: 2a41ba9c337acf44f8b8a364f0c94ac9, type: 3}
       propertyPath: m_Mesh
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8356031363328384329, guid: 2a41ba9c337acf44f8b8a364f0c94ac9, type: 3}
+      propertyPath: m_SelectedEdges.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8356031363328384329, guid: 2a41ba9c337acf44f8b8a364f0c94ac9, type: 3}
+      propertyPath: m_SelectedFaces.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8356031363328384329, guid: 2a41ba9c337acf44f8b8a364f0c94ac9, type: 3}
+      propertyPath: m_SelectedVertices.Array.size
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2a41ba9c337acf44f8b8a364f0c94ac9, type: 3}

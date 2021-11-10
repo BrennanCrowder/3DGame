@@ -19,8 +19,9 @@ public class RandomizeRoom : MonoBehaviour
         }
     }
 
-    public void DirectionToRandomize (Collider trigger)
+    public void DirectionToRandomize (string dir)
     {
-
+        RoomMatrixScript.centerRoom = thisRoom;
+        RoomsParent.GetComponent<RoomMatrixScript>().AddRoom(thisRoom, dir);
     }
 }

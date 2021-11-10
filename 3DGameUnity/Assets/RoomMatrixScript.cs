@@ -1,32 +1,51 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
 public class RoomMatrixScript : MonoBehaviour
 {
-    public GameObject northRoom;
-    public GameObject eastRoom;
-    public GameObject southRoom;
-    public GameObject westRoom;
-    public GameObject centerRoom;
+    public static GameObject northRoom;
+    public static GameObject eastRoom;
+    public static GameObject southRoom;
+    public static GameObject westRoom;
+    public static GameObject centerRoom;
 
-    public void AddRoom(GameObject newRoom, string dir) // dir == "N" || "E" || "S" || "W"
+    public void Awake()
     {
-        newRoom.transform.SetParent(this.transform);
+        RandomizeRoom.RoomsParent = gameObject;
+    }
+
+    private void Start()
+    {
+        
+        int roomIndex = Random.Range(0, RandomizeRoom.Rooms.Length);
+        #region RoomInit
+        
+
+
+        #endregion
+    }
+
+    public void AddRoom(GameObject curRoom, string dir) // dir == "N" || "E" || "S" || "W"
+    {
+        centerRoom = curRoom;
+
+        curRoom.transform.SetParent(transform);
+
         if (dir == "N")
         {
-            newRoom.transform.position = new Vector3(this.transform.position.x + 9, transform.position.y, transform.position.z + 9);
+            curRoom.transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z + 9);
         } 
-        else if (dir == "E"){
-           
+        else if (dir == "E")
+        {
+            curRoom.transform.position = new Vector3(transform.position.x + 9, transform.position.y, transform.position.z);
         }
         else if (dir == "S")
         {
-
+            curRoom.transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z - 9);
         }
         else if (dir == "W")
         {
-
+            curRoom.transform.position = new Vector3(transform.position.x - 9, transform.position.y, transform.position.z);
         } 
         else
         {

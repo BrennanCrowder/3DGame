@@ -6,10 +6,13 @@ using UnityEngine;
 
 public class RoomTriggerScript : MonoBehaviour
 {
+    public string direction;
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player")) {
-            // Send this gameobject to room randomzier
+            Debug.Log("Entered " + direction + " Trigger");
+            gameObject.transform.parent.GetComponent<RandomizeRoom>().DirectionToRandomize(direction);
         }
     }
 }
