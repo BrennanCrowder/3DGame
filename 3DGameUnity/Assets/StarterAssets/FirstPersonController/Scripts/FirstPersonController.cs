@@ -97,12 +97,49 @@ namespace StarterAssets
 			JumpAndGravity();
 			GroundedCheck();
 			Move();
+			Interact();
 		}
 
 		private void LateUpdate()
 		{
 			CameraRotation();
 		}
+
+
+		private bool flag = true;
+		private void Interact()
+        {
+			if (_input.interact && flag)
+            {
+				Debug.Log("Interact...");
+
+				RaycastHit hit;
+				if (Physics.Raycast(_mainCamera.transform.position, _mainCamera.transform.forward, out hit, 2f ))
+                {
+					if (hit.transform.CompareTag("Door"))
+                    {
+						hit.transform.parent.GetComponent<Animator>().SetTrigger("Open");
+                    }
+                }
+
+
+
+
+
+
+
+
+				flag = false;
+            } 
+			else if (_input.interact)
+            {
+				return;
+            } 
+			else
+            {
+				flag = true;
+            }
+        }
 
 		private void GroundedCheck()
 		{

@@ -10,10 +10,15 @@ public class RandomizeRoom : MonoBehaviour
 
     public void Awake()
     {
+        
         thisRoom = gameObject.transform.parent.gameObject;
-
+        
+        
+    }
+    public void Start()
+    {
         Rooms = new GameObject[RoomsParent.transform.childCount];
-        for (int i = 0; i <  Rooms.Length; i++)
+        for (int i = 0; i < Rooms.Length; i++)
         {
             Rooms[i] = RoomsParent.transform.GetChild(i).gameObject;
         }
@@ -21,7 +26,6 @@ public class RandomizeRoom : MonoBehaviour
 
     public void DirectionToRandomize (string dir)
     {
-        RoomMatrixScript.centerRoom = thisRoom;
         RoomsParent.GetComponent<RoomMatrixScript>().AddRoom(thisRoom, dir);
     }
 }
