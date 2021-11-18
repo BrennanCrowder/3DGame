@@ -9,7 +9,7 @@ public class RoomScript : MonoBehaviour
     public GameObject southDoor;
     public GameObject westDoor;
 
-
+    
     private void OnEnable()
     {
         northDoor.transform.GetChild(0).localRotation = Quaternion.Euler(0,0,0);
@@ -18,18 +18,10 @@ public class RoomScript : MonoBehaviour
         westDoor.transform.GetChild(0).localRotation = Quaternion.Euler(0, 0, 0);
 
     }
-    public void Disable()
+    
+    public void OnDisable()
     {
-        //EnableDoors();
-        //waitforAnim(northDoor.transform.GetChild(0).GetComponent<Animator>());
-       // waitforAnim(southDoor.transform.GetChild(0).GetComponent<Animator>());
-        //waitforAnim(eastDoor.transform.GetChild(0).GetComponent<Animator>());
-        //waitforAnim(westDoor.transform.GetChild(0).GetComponent<Animator>());
-        //northDoor.transform.GetChild(0).GetComponent<Animator>().SetTrigger("Disabled");
-        //southDoor.transform.GetChild(0).GetComponent<Animator>().SetTrigger("Disabled");
-        //eastDoor.transform.GetChild(0).GetComponent<Animator>().SetTrigger("Disabled");
-       // westDoor.transform.GetChild(0).GetComponent<Animator>().SetTrigger("Disabled");
-        //gameObject.SetActive(false);
+        dontDisable = "";
     }
 
     IEnumerator waitforAnim(Animator anim)
@@ -37,9 +29,16 @@ public class RoomScript : MonoBehaviour
         yield return new WaitForSeconds(anim.GetCurrentAnimatorStateInfo(0).length);
     }
 
-
+    public string dontDisable;
+    public string dontEnable;
     public void DisableDoor(string dir)
     {
+        if (dir == dontDisable)
+        {
+            Debug.Log("Not Disabling: " + dir);
+            return;
+        }
+
         if (dir == "N")
         {
             //northDoor.transform.GetChild(0).GetComponent<Animator>().SetTrigger("Disabled");
@@ -68,25 +67,31 @@ public class RoomScript : MonoBehaviour
 
     public void EnableDoors()
     {
-        northDoor.SetActive(true);
-        southDoor.SetActive(true);
-        eastDoor.SetActive(true);
-        westDoor.SetActive(true);
+        if (dontEnable != "N")
+        {
+            northDoor.SetActive(true);
+        }
+        if (dontEnable != "S")
+        {
+            southDoor.SetActive(true);
+        }
+        if (dontEnable != "E")
+        {
+            eastDoor.SetActive(true);
+        }
+        if (dontEnable != "W")
+        {
+            westDoor.SetActive(true);
+        }
         
     }
 
+    public bool animBool; // static
+
     public bool AnimisDone()
     {
-
-        if(eastDoor.transform.GetChild(0).GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("Door"))
-        {
-            return true;
-
-        } else
-        {
-            return false;
-        }
-        
+        //Debug.Log(animBool);
+        return animBool;
     }
 
     public void EnableDoor(string dir)
