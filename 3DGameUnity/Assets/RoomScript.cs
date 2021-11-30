@@ -16,6 +16,7 @@ public class RoomScript : MonoBehaviour
         eastDoor.transform.GetChild(0).localRotation = Quaternion.Euler(0, 0, 0);
         southDoor.transform.GetChild(0).localRotation = Quaternion.Euler(0, 0, 0);
         westDoor.transform.GetChild(0).localRotation = Quaternion.Euler(0, 0, 0);
+        
 
     }
     

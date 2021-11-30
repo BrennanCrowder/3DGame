@@ -7,6 +7,8 @@ TagManager:
   - CinemachineTarget
   - Ground
   - Door
+  - EndDoor
+  - EndRoom
   layers:
   - Default
   - TransparentFX
@@ -15,9 +17,9 @@ TagManager:
   - Water
   - UI
   - Torch
-  - 
-  - 
-  - 
+  - NavMeshLayer
+  - EndTriggerLayer
+  - MiniMap
   - 
   - 
   - 

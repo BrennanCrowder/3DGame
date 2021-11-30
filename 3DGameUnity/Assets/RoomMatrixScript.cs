@@ -10,6 +10,8 @@ public class RoomMatrixScript : MonoBehaviour
     public GameObject centerRoom;
     public GameObject pastRoom;
     public GameObject roomHolder;
+    public GameObject endRoom;
+
 
     public void Awake()
     {
@@ -192,7 +194,7 @@ public class RoomMatrixScript : MonoBehaviour
         }
         
 
-        if (room.transform.childCount != 0 && room.transform.GetChild(0).GetComponent<RoomScript>().AnimisDone())
+        if (room.transform.childCount != 0 && room.transform.GetChild(0).GetComponent<RoomScript>().AnimisDone() && centerRoom.transform.GetChild(0).GetComponent<RoomScript>().AnimisDone())
         {
             Debug.Log("Randomizing Room");
             
@@ -202,12 +204,20 @@ public class RoomMatrixScript : MonoBehaviour
             Transform childObj = roomHolder.transform.GetChild(randRoomIndex); // gets new child
             childObj.parent = room.transform;
             childObj.localPosition = Vector3.zero;
+            if (childObj.position == endRoom.transform.position)
+            {
+                Debug.Log("Lowering Room");
+                childObj.localPosition = new Vector3(0f, -9f, 0f);
+            }
+
             childObj.gameObject.SetActive(true);
         } 
         else
         {
             Debug.Log(room.name);
             Debug.Log("Not Randomizing");
+            Debug.Log("Children #: " + room.transform.childCount);
+            Debug.Log("Child Room: " + room.transform.GetChild(0).name);
         }
         
     }
