@@ -43,7 +43,7 @@ public class FSM : MonoBehaviour
         currentState = GetState(state);
         currentState.OnEnter();
 
-        Debug.Log("Transition to: " + currentState.StateName);
+        //Debug.Log("Transition to: " + currentState.StateName);
     }
     IFSMStates GetState(FSMStateType stateName)
     {

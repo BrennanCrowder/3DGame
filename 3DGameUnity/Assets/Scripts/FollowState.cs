@@ -12,7 +12,7 @@ public class FollowState : MonoBehaviour, IFSMStates
     public FSMStateType StateName { get { return FSMStateType.Follow; } }
     public void OnEnter()
     {
-        Debug.Log("Following");
+        //Debug.Log("Following");
         UnlockTrigger.hasKey = true;
         keyAgent = GetComponent<NavMeshAgent>();
         player = GameObject.FindGameObjectWithTag("Player");

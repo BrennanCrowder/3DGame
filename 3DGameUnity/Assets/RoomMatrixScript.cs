@@ -38,7 +38,7 @@ public class RoomMatrixScript : MonoBehaviour
     public void AddRoom(GameObject curRoom, string triggerDir) // dir == "N" || "E" || "S" || "W"
     {
         truePast = pastRoom;
-        Debug.Log("Current Room: " + curRoom.transform.parent.gameObject + " Past Room: " + pastRoom);
+        //Debug.Log("Current Room: " + curRoom.transform.parent.gameObject + " Past Room: " + pastRoom);
         if (curRoom.transform.parent.gameObject != pastRoom)
         {
             pastRoom = curRoom.transform.parent.gameObject;
@@ -196,7 +196,7 @@ public class RoomMatrixScript : MonoBehaviour
 
         if (room.transform.childCount != 0 && room.transform.GetChild(0).GetComponent<RoomScript>().AnimisDone() && centerRoom.transform.GetChild(0).GetComponent<RoomScript>().AnimisDone())
         {
-            Debug.Log("Randomizing Room");
+            //Debug.Log("Randomizing Room");
             
             centerRoom.transform.GetChild(0).GetComponent<RoomScript>().EnableDoors();
             RemoveRoom(room);
@@ -206,7 +206,7 @@ public class RoomMatrixScript : MonoBehaviour
             childObj.localPosition = Vector3.zero;
             if (childObj.position == endRoom.transform.position)
             {
-                Debug.Log("Lowering Room");
+                //Debug.Log("Lowering Room");
                 childObj.localPosition = new Vector3(0f, -9f, 0f);
             }
 
@@ -214,10 +214,10 @@ public class RoomMatrixScript : MonoBehaviour
         } 
         else
         {
-            Debug.Log(room.name);
-            Debug.Log("Not Randomizing");
-            Debug.Log("Children #: " + room.transform.childCount);
-            Debug.Log("Child Room: " + room.transform.GetChild(0).name);
+            //Debug.Log(room.name);
+            //Debug.Log("Not Randomizing");
+           // Debug.Log("Children #: " + room.transform.childCount);
+            //Debug.Log("Child Room: " + room.transform.GetChild(0).name);
         }
         
     }

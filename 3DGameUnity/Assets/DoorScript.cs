@@ -26,7 +26,7 @@ public class DoorScript : MonoBehaviour
         {
             if (!tempflag)
             {
-                Debug.Log("NOT Idle");
+                //Debug.Log("NOT Idle");
                 tempflag = true;
             }
             
@@ -37,7 +37,7 @@ public class DoorScript : MonoBehaviour
         
         if (flag == true && GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("Idle")) //
         {
-            Debug.Log("Idle: " + name);
+            //Debug.Log("Idle: " + name);
             //RoomScript.animBool = true;
             transform.parent.parent.GetComponent<RoomScript>().animBool = true;
             flag = false;

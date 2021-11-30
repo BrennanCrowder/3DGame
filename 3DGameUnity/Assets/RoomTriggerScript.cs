@@ -16,7 +16,7 @@ public class RoomTriggerScript : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player")) { // && flag
-            Debug.Log("Entered " + direction + " Trigger");
+            //Debug.Log("Entered " + direction + " Trigger");
             gameObject.transform.parent.GetComponent<RandomizeRoom>().DirectionToRandomize(direction);
             flag = false;
         }
