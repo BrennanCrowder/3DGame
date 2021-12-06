@@ -5081,6 +5081,10 @@ PrefabInstance:
       propertyPath: m_Color.r
       value: 0.745283
       objectReference: {fileID: 0}
+    - target: {fileID: 4510671230363428849, guid: e776325c22ca5cf4b84255f32f25e5ac, type: 3}
+      propertyPath: m_Intensity
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6673375144332788743, guid: e776325c22ca5cf4b84255f32f25e5ac, type: 3}
       propertyPath: m_Name
       value: fireLight
