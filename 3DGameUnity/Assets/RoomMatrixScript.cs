@@ -15,6 +15,7 @@ public class RoomMatrixScript : MonoBehaviour
 
     public void Awake()
     {
+        Cursor.lockState = CursorLockMode.Locked;
         RandomizeRoom.RoomsParent = gameObject;
     }
 
@@ -233,4 +234,6 @@ public class RoomMatrixScript : MonoBehaviour
         oldRoom.SetActive(false);
     }
     
+   
+
 }

@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class MenuManagerScript : MonoBehaviour
 {
     public GameObject menuCanvas;
+    private static bool toggleMinimap;
     public GameObject settingCanvas;
     public GameObject musicObject;
     public GameObject RoomsParent;
@@ -16,6 +17,7 @@ public class MenuManagerScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        // get the toggleminimap bool
         StartCoroutine("ChangeRoom");
     }
 
@@ -37,7 +39,7 @@ public class MenuManagerScript : MonoBehaviour
         Application.Quit();
     }
 
-    public void SetMusicVolume(float volume)
+    public void SetMusicVolume()
     {
         // TODO
     }
@@ -55,7 +57,15 @@ public class MenuManagerScript : MonoBehaviour
 
     public void ButtonToggleDevMiniMap()
     {
-        // TODO: Make Static Var
+        if(toggleMinimap)
+        {
+            toggleMinimap = false;
+        } 
+        else
+        {
+            toggleMinimap = true;
+        }
+        Debug.Log("Mini map: " + toggleMinimap);
     }
 
     IEnumerator ChangeRoom()

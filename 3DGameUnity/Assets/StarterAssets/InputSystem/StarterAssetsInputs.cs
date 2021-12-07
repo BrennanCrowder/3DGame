@@ -13,6 +13,7 @@ namespace StarterAssets
 		public bool jump;
 		public bool sprint;
 		public bool interact;
+		public bool escape;
 
 		[Header("Movement Settings")]
 		public bool analogMovement;
@@ -51,6 +52,11 @@ namespace StarterAssets
         {
 			InteractInput(value.isPressed); 
         }
+
+		public void OnEscape(InputValue value)
+        {
+			EscapeInput(value.isPressed);
+        }
 #else
 	// old input sys if we do decide to have it (most likely wont)...
 #endif
@@ -79,6 +85,11 @@ namespace StarterAssets
 		public void InteractInput(bool newInteractState)
         {
 			interact = newInteractState;
+        }
+
+		public void EscapeInput(bool newEscapeState)
+        {
+			escape = newEscapeState;
         }
 
 #if !UNITY_IOS || !UNITY_ANDROID

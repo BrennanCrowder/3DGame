@@ -98,6 +98,7 @@ namespace StarterAssets
 			GroundedCheck();
 			Move();
 			Interact();
+			Escape();
 		}
 
 		private void LateUpdate()
@@ -122,13 +123,6 @@ namespace StarterAssets
                     }
                 }
 
-
-
-
-
-
-
-
 				flag = false;
             } 
 			else if (_input.interact)
@@ -139,6 +133,32 @@ namespace StarterAssets
             {
 				flag = true;
             }
+        }
+
+		public GameObject pauseMenu;
+		private void Escape()
+        {
+			
+
+			if(_input.escape)
+            {
+				Debug.Log("Escape Pressed...");
+				if (!pauseMenu.activeSelf)
+                {
+					Cursor.lockState = CursorLockMode.Confined;
+					pauseMenu.SetActive(true);
+					
+					
+				} 
+				else
+                {
+					Cursor.lockState = CursorLockMode.Locked;
+					pauseMenu.SetActive(false);
+					
+					
+				}
+				_input.escape = false;
+			}
         }
 
 		private void GroundedCheck()
