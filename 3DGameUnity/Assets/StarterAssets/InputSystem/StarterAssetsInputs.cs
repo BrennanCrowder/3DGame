@@ -14,7 +14,7 @@ namespace StarterAssets
 		public bool sprint;
 		public bool interact;
 		public bool escape;
-
+		public bool inPauseMenu;
 		[Header("Movement Settings")]
 		public bool analogMovement;
 
@@ -32,8 +32,8 @@ namespace StarterAssets
 
 		public void OnLook(InputValue value)
 		{
-			if(cursorInputForLook)
-			{
+			if (cursorInputForLook && !inPauseMenu)
+            {
 				LookInput(value.Get<Vector2>());
 			}
 		}
@@ -69,7 +69,9 @@ namespace StarterAssets
 
 		public void LookInput(Vector2 newLookDirection)
 		{
+			
 			look = newLookDirection;
+		
 		}
 
 		public void JumpInput(bool newJumpState)

@@ -137,22 +137,20 @@ namespace StarterAssets
 
 		public GameObject pauseMenu;
 		private void Escape()
-        {
-			
-
+		{
 			if(_input.escape)
             {
 				Debug.Log("Escape Pressed...");
 				if (!pauseMenu.activeSelf)
                 {
 					Cursor.lockState = CursorLockMode.Confined;
+					_input.inPauseMenu = true;
 					pauseMenu.SetActive(true);
-					
-					
 				} 
 				else
                 {
 					Cursor.lockState = CursorLockMode.Locked;
+					_input.inPauseMenu = false;
 					pauseMenu.SetActive(false);
 					
 					

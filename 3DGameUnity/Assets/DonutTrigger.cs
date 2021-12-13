@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class DonutTrigger : MonoBehaviour
 {
+    public GameObject winObject;
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
@@ -14,7 +15,9 @@ public class DonutTrigger : MonoBehaviour
 
     private void Win()
     {
+        Cursor.lockState = CursorLockMode.None;
         Debug.Log("Winner!");
+        winObject.SetActive(true);
         Destroy(gameObject);
     }
 }

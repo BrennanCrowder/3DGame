@@ -8,6 +8,7 @@ public class MenuManagerScript : MonoBehaviour
     public GameObject menuCanvas;
     private static bool toggleMinimap;
     public GameObject settingCanvas;
+    public GameObject slider;
     public GameObject musicObject;
     public GameObject RoomsParent;
     public GameObject[] Rooms;
@@ -17,8 +18,10 @@ public class MenuManagerScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        musicObject = GameObject.FindGameObjectWithTag("Music");
         // get the toggleminimap bool
         StartCoroutine("ChangeRoom");
+
     }
 
     public void ButtonStart()
@@ -39,9 +42,9 @@ public class MenuManagerScript : MonoBehaviour
         Application.Quit();
     }
 
-    public void SetMusicVolume()
+    public void SetMusicVolume(float volume)
     {
-        // TODO
+        musicObject.GetComponent<AudioSource>().volume = volume;
     }
 
     public void ButtonBack()
@@ -50,9 +53,9 @@ public class MenuManagerScript : MonoBehaviour
         settingCanvas.SetActive(false);
     }
 
-    public void ButtonToggleTimer()
+    public void ButtonToggleTimer(bool toggleTimer)
     {
-        // TODO: Make Timer
+        SceneManagerScript.timerOn = toggleTimer;
     }
 
     public void ButtonToggleDevMiniMap()
